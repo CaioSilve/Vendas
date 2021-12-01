@@ -38,6 +38,11 @@ public class Cliente {
 	@NotNull
 	private String nome;
 	
+	@ToString.Include
+	@NonNull
+	@NotNull
+	private String cpf;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private Set<Pedido> pedidos = new HashSet<>();

@@ -33,9 +33,9 @@ public class VendasApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Cliente clie = new Cliente("Geovana");
+		Cliente clie = new Cliente("Geovana", "5074825658");
 		
-		repoClie.save(new Cliente("Marcos"));
+		repoClie.save(new Cliente("Marcos", "236589574"));
 		repoClie.save(clie);
 		
 		
