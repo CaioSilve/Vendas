@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -27,8 +28,10 @@ public class Produto {
 	private Long id;
 	
 	@ToString.Include
+	@NotNull
 	private String descricao;
 	@ToString.Include
+	@NotNull
 	@Column(name = "preco_unitario")
 	private Double preco;
 	
