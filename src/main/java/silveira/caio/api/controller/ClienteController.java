@@ -31,7 +31,7 @@ public class ClienteController {
 	private ClienteRepository repo;
 	
 	@GetMapping
-	public List<Cliente> listarClientes(@RequestBody Cliente filtro){
+	public List<Cliente> listarClientes(Cliente filtro){
 		ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING);
 		Example<Cliente> example = Example.of(filtro, matcher);
 		

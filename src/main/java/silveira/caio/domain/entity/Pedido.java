@@ -47,6 +47,7 @@ public class Pedido {
 	private Double total;
 	
 	@OneToMany(mappedBy = "pedido")
+	@NonNull
 	private Set<ItemPedido> itens = new HashSet<>();
 	
 	

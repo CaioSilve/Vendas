@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +32,8 @@ public class ProdutoController {
 	
 	
 	@GetMapping
-	public List<Produto> getProdutos(@RequestBody Produto filtro){
-		ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreCase();
+	public List<Produto> getProdutos(Produto filtro){
+		ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING);
 		Example<Produto> example = Example.of(filtro, matcher);
 		
 		return repo.findAll(example);
