@@ -1,5 +1,7 @@
 package silveira.caio.api.controller;
 
+import static org.springframework.http.HttpStatus.CREATED;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import silveira.caio.api.model.input.PedidoInput;
 import silveira.caio.domain.entity.Pedido;
 import silveira.caio.domain.service.PedidoService;
-
-import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/pedidos")

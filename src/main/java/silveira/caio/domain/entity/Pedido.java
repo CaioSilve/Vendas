@@ -1,8 +1,7 @@
 package silveira.caio.domain.entity;
 
 import java.time.OffsetDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,15 +47,7 @@ public class Pedido {
 	
 	@OneToMany(mappedBy = "pedido")
 	@NonNull
-	private Set<ItemPedido> itens = new HashSet<>();
-	
-	
-	public void setTotal() {
-		this.total = 0.0;
-		for (ItemPedido itemPedido : itens) {
-			this.total += itemPedido.getProduto().getPreco() * itemPedido.getQtde();
-		}
-	}
+	private List<ItemPedido> itens;
 	
 	
 }

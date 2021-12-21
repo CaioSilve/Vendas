@@ -1,7 +1,6 @@
 package silveira.caio.domain.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,7 +44,7 @@ public class Cliente {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
-	private Set<Pedido> pedidos = new HashSet<>();
+	private List<Pedido> pedidos;
 	
 
 
