@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import silveira.caio.api.model.ItemPedidoResponse;
 import silveira.caio.api.model.input.ItemPedidoInput;
 import silveira.caio.domain.entity.ItemPedido;
 import silveira.caio.domain.entity.Pedido;
@@ -32,7 +33,16 @@ public class ItemPedidoMapper {
 	}
 	
 	public List<ItemPedido> toCollectionEntity(Pedido pedido,List<ItemPedidoInput> itens) {
-		return itens.stream().map(item -> this.toEntity(pedido, item)).distinct().collect(Collectors.toList());
+		return itens.stream().map(item -> this.toEntity(pedido, item)).collect(Collectors.toList());
+	}
+	
+	
+	public ItemPedidoResponse toResponse(ItemPedido itempedido) {
+		return mapper.map(itempedido, ItemPedidoResponse.class);
+	}
+	
+	public List<ItemPedidoResponse> toCollectionResponse(List<ItemPedido> itens){
+		return itens.stream().map(item -> this.toResponse(item)).collect(Collectors.toList());
 	}
 
 }

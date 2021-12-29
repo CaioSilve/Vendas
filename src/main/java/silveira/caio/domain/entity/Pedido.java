@@ -4,6 +4,8 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +19,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import silveira.caio.domain.entity.enums.StatusPedido;
 
 
 @Getter
@@ -44,6 +47,9 @@ public class Pedido {
 	
 	@ToString.Include
 	private Double total;
+	
+	@Enumerated(EnumType.STRING)
+	private StatusPedido status;
 	
 	@OneToMany(mappedBy = "pedido")
 	@NonNull
